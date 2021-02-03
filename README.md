@@ -56,7 +56,6 @@ yahoo.com
 ```
 6. Update the list to add blocked phrase
 ```
-vim /etc/dansguardian/lists/bannedsitelist
 vim /etc/dansguardian/lists/bannedphraselist
 ```
 7. Add phrase to be blocked
