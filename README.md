@@ -50,13 +50,19 @@ proxyip=<IP_ADDRESS>
 ```
 vim /etc/dansguardian/lists/bannedsitelist
 ```
-5. Add yahoo.com
+5. Add site to be blocked
+```
+yahoo.com
+```
 6. Update the list to add blocked phrase
 ```
 vim /etc/dansguardian/lists/bannedsitelist
 vim /etc/dansguardian/lists/bannedphraselist
 ```
-7. Add <yahoo>
+7. Add phrase to be blocked
+```
+<yahoo>
+```
 8. Restart Dansguardian service
 ```
 service dansguardian restart
