@@ -29,7 +29,7 @@ http_reply_access deny fb local1 office_time
 ```
 5. Restart squid service
 ```
-service restart squid
+service squid restart
 ```
 6. Open browser and access www.facebook.com
 
@@ -46,4 +46,22 @@ vim /etc/dansguardian/dansguardian.conf
 ```
 proxyip=<IP_ADDRESS>
 ```
-4. Update the list to add blocked URL and Phrase
+4. Update the list to add blocked URL
+```
+vim /etc/dansguardian/lists/bannedsitelist
+```
+5. Add yahoo.com
+6. Update the list to add blocked phrase
+```
+vim /etc/dansguardian/lists/bannedsitelist
+vim /etc/dansguardian/lists/bannedphraselist
+```
+7. Add <yahoo>
+8. Restart Dansguardian service
+```
+service dansguardian restart
+```
+9. Update proxy settings in browser
+```
+<IP_ADDRESS>:8080
+```
