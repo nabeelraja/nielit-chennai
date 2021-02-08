@@ -1,5 +1,11 @@
 # NIELIT CHENNAI CLOUD COMPUTING
 
+## TOC
+- [DNS](#dns)
+- [Webserver](#webserver)
+- [Squid Proxy](#squid-proxy)
+- [Dansguardina](#dansguardian)
+
 ## DNS
 
 
