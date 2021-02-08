@@ -4,7 +4,7 @@
 - [DNS](#dns)
 - [Webserver](#webserver)
 - [Squid Proxy](#squid-proxy)
-- [Dansguardina](#dansguardian)
+- [Dansguardian](#dansguardian)
 
 ## DNS
 
