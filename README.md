@@ -6,6 +6,59 @@
 - [Squid Proxy](#squid-proxy)
 - [Dansguardian](#dansguardian)
 
+## Pre-requisites
+
+1. Add a new CentOS-6 VM
+2. Open terminal as root user
+```
+su -
+```
+3. Get current ipaddress of the machine
+```
+ifconfig
+```
+4. Open network settings, delete eth1 interface and change from DHCP to static IP (current IP address)
+IP Address: <IP_ADDRESS>
+Netmask: 255.255.252.0
+Gateway: 192.168.120.0
+5. Restart network service
+```
+service network restart
+```
+6. Check firewall status and disable firewall if active
+```
+service iptables status
+service ip6tables status
+
+service iptables stop
+service ip6tables stop
+
+chkconfig iptables off
+chkconfig ip6tables off
+```
+7. Check and disable SELINUX if active
+```
+getenforce
+
+vim /etc/sysconfig/selinux
+```
+Ensure SELINUX=disabled
+8. Change default server name
+```
+vim /etc/sysconfig/network
+```
+HOSTNAME=<SERVER_NAME>
+9. Add hostname to host file
+```
+vim /etc/hosts
+```
+<IP_ADDRESS> <SERVER_NAME>
+10. Reboot the machine
+```
+reboot
+```
+11. Validate if the above settings are correct.
+
 ## DNS
 
 
