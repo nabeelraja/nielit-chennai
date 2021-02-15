@@ -64,7 +64,49 @@ reboot
 11. Validate if the above settings are correct.
 
 ## DNS
-
+1. Install package
+```
+yum install bind*
+```
+2. Take a backup of named.conf file
+```
+cp /etc/named.conf /etc/named.conf.BAK
+```  
+3. Make the following changes to the named.conf file
+    1. listen-on: add <IP_ADDRESS>;
+    2. disable listen-on-v6
+    3. allow query: add 0.0.0.0/0
+    4. disable recursion
+    5. disable security
+    6. Create new entry for zone:
+        1. type: master
+        2. file: /etc/named/<ZONE_FILE_NAME>
+        ```
+        zone "nabeel.com" IN {
+          type: master
+          file: "/etc/named/nabeel.com.zone"
+        }
+        ```
+4. Validate named.conf configuration
+```
+named-checkconf /etc/named.conf
+```
+5. Create zone file
+```
+vim /etc/named/<ZONE_FILE_NAME>
+```
+6. Enter the following details:
+  1. SOA
+  2. NS
+  3. MX
+  4. A
+  5. CNAME
+  ```
+  $TTL 6H
+  @ IN  SOA nabeel.com. root.nabeel.com. (0 1D 1H 1W 5H)
+  @ IN NS ns1.nabeel.com.
+  ns1 IN  A <IP_ADDRESS>
+  ```
 
 ## Webserver
 
