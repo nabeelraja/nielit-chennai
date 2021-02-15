@@ -1,6 +1,7 @@
 # NIELIT CHENNAI CLOUD COMPUTING
 
 ## TOC
+- [Pre-requisites](#pre-requisites)
 - [DNS](#dns)
 - [Webserver](#webserver)
 - [Squid Proxy](#squid-proxy)
