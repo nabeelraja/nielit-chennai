@@ -42,18 +42,21 @@ chkconfig ip6tables off
 getenforce
 
 vim /etc/sysconfig/selinux
-```
+
 Ensure SELINUX=disabled
+```
 8. Change default server name
 ```
 vim /etc/sysconfig/network
-```
+
 HOSTNAME=<SERVER_NAME>
+```
 9. Add hostname to host file
 ```
 vim /etc/hosts
-```
+
 <IP_ADDRESS> <SERVER_NAME>
+```
 10. Reboot the machine
 ```
 reboot
