@@ -75,16 +75,16 @@ cp /etc/named.conf /etc/named.conf.BAK
 3. Make the following changes to the named.conf file
     1. listen-on: add <IP_ADDRESS>;
     2. disable listen-on-v6
-    3. allow query: add 0.0.0.0/0
+    3. allow query: add 0.0.0.0/0;
     4. disable recursion
     5. disable security
     6. Create new entry for zone:
         1. type: master
-        2. file: /etc/named/<ZONE_FILE_NAME>
+        2. file: /etc/named/<ZONE_FILE>
         ```
-        zone "nabeel.com" IN {
+        zone "<DOMIAN_NAME>" IN {
           type: master
-          file: "/etc/named/nabeel.com.zone"
+          file: "/etc/named/<DOMIAN_NAME>.zone"
         }
         ```
 4. Validate named.conf configuration
@@ -112,6 +112,8 @@ named-checkzone -d <DOMAIN_NAME> <ZONE_FILE>
 8. Enable and restart the named service
 ```
 chkconfig named on
+
+chkconfig | grep named
 
 service named restart
 ```
