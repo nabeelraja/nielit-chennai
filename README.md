@@ -96,17 +96,20 @@ named-checkconf /etc/named.conf
 vim /etc/named/<ZONE_FILE_NAME>
 ```
 6. Enter the following details:
-  1. SOA
-  2. NS
-  3. MX
-  4. A
-  5. CNAME
-  ```
-  $TTL 6H
-  @ IN  SOA nabeel.com. root.nabeel.com. (0 1D 1H 1W 5H)
-  @ IN NS ns1.nabeel.com.
-  ns1 IN  A <IP_ADDRESS>
-  ```
+    1. SOA
+    2. NS
+    3. MX
+    4. A
+    5. CNAME
+    ```
+    $TTL 6H
+    @	IN	SOA	nabeel.com. root.nabeel.com. ( 0 1H 2H 1W 5H )
+    @	IN	MX	10 mail.nabeel.com.
+    @	IN	NS	ns1.nabeel.com.
+    ns1	IN	A	<IP_ADDRESS>
+    www	IN	A	<IP_ADDRESS>
+    ftp	IN	CNAME	www
+    ```
 
 ## Webserver
 
