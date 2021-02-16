@@ -19,9 +19,10 @@ su -
 ifconfig
 ```
 4. Open network settings, delete eth1 interface and change from DHCP to static IP (current IP address)
-IP Address: <IP_ADDRESS>
-Netmask: 255.255.252.0
-Gateway: 192.168.120.0
+    1. IP Address: <IP_ADDRESS>
+    2. Netmask: 255.255.252.0
+    3. Gateway: 192.168.120.1
+    4. DNS: 192.168.120.1, 8.8.8.8
 5. Restart network service
 ```
 service network restart
@@ -62,6 +63,10 @@ vim /etc/hosts
 reboot
 ```
 11. Validate if the above settings are correct.
+```
+ping 192.168.120.1
+ping www.google.com
+```
 
 ## DNS
 1. Install package
@@ -98,9 +103,9 @@ vim /etc/named/<ZONE_FILE_NAME>
 6. Enter the following: SOA, NS, MX,A, CNAME
 ```
 $TTL 6H
-@	IN	SOA	nabeel.com. root.nabeel.com. ( 0 1H 2H 1W 5H )
-@	IN	MX	10 mail.nabeel.com.
-@	IN	NS	ns1.nabeel.com.
+@	IN	SOA	<DOMIAN_NAME>. root.<DOMIAN_NAME>. ( 0 1H 2H 1W 5H )
+@	IN	MX	10 mail.<DOMIAN_NAME>.
+@	IN	NS	ns1.<DOMIAN_NAME>.
 ns1	IN	A	<IP_ADDRESS>
 www	IN	A	<IP_ADDRESS>
 ftp	IN	CNAME	www
