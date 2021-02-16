@@ -156,8 +156,11 @@ http_reply_access deny fb local1 office_time
 ```
 <IP_ADDRESS>:3128
 ```
-5. Restart squid service
+5. Enable and restart the squid service
 ```
+chkconfig squid on
+chkconfig | grep squid
+
 service squid restart
 ```
 6. Open browser and access www.facebook.com
