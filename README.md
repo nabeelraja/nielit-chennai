@@ -105,7 +105,31 @@ ns1	IN	A	<IP_ADDRESS>
 www	IN	A	<IP_ADDRESS>
 ftp	IN	CNAME	www
 ```
+7. Validate the zone file
+```
+named-checkzone -d <DOMAIN_NAME> <ZONE_FILE>
+```
+8. Enable and restart the named service
+```
+chkconfig named on
 
+service named restart
+```
+9. Add IP Address to DNS in network settings
+10. Restart network
+```
+service network restart
+```
+11. Validate the configurations
+```
+host <DOMAIN_NAME>
+
+host www.<DOMAIN_NAME>
+
+dig www.<DOMAIN_NAME>
+
+dig <DOMAIN_NAME> AXFR <IP_ADDRESS>
+```
 ## Webserver
 
 
